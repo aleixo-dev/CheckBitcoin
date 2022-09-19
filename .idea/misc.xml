@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/drawable/background_image.xml" value="0.115" />
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/drawable/img_type.xml" value="0.1745" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/layout/bitcoin_item.xml" value="0.33" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/layout/fragment_favorite.xml" value="0.3687179487179487" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/layout/fragment_home.xml" value="0.3687179487179487" />
+        <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/layout/image_view_forms.xml" value="0.2828125" />
         <entry key="..\:/Users/nicol/AndroidStudioProjects/CheckBitcoin/app/src/main/res/menu/main_menu.xml" value="0.30337552742616036" />
       </map>
     </option>

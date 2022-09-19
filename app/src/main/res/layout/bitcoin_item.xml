@@ -5,14 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80"
-        android:layout_height="80"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_imageCoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:elevation="2dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/guideline_top"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView_iconCoin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -33,34 +55,92 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="5dp" />
 
     <TextView
+        android:ellipsize="marquee"
         android:id="@+id/textView_titleCoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Bitcoin"
+        android:layout_marginStart="16dp"
+        tools:text="Bitcoin"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/container_imageCoin"
         app:layout_constraintTop_toTopOf="@+id/guideline_top" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView5"
+    <TextView
+        android:id="@+id/textView_symbolCoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="symbol: BTC"
+        tools:text="BTC"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView_titleCoin"
         app:layout_constraintTop_toBottomOf="@+id/textView_titleCoin" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_priceCoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-9.10"
+        tools:text="USD 19.698,50"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:textColor="#00C853"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/container_imageCoin"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end" />
+
+    <TextView
+        android:id="@+id/textView_priceChangeOneHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1h: -0.88"
+        android:textColor="#D50000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/container_imageCoin"
+        app:layout_constraintStart_toStartOf="@+id/textView_symbolCoin" />
+
+    <TextView
+        android:id="@+id/textView_priceChangeOneDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="#D50000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_arrowOneHour"
+        app:layout_constraintStart_toEndOf="@+id/imageView_arrowOneHour"
+        app:layout_constraintTop_toTopOf="@+id/imageView_arrowOneHour"
+        tools:text="1d: -3.1" />
+
+    <ImageView
+        android:id="@+id/imageView_favoriteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top"
+        app:srcCompat="@drawable/ic_baseline_save" />
+
+    <ImageView
+        android:id="@+id/imageView_arrowOneHour"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_priceChangeOneHour"
+        app:layout_constraintStart_toEndOf="@+id/textView_priceChangeOneHour"
+        app:layout_constraintTop_toTopOf="@+id/textView_priceChangeOneHour"
+        app:srcCompat="@drawable/ic_baseline_arrow_up" />
+
+    <ImageView
+        android:id="@+id/imageView_arrowOneDay"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_priceChangeOneDay"
+        app:layout_constraintStart_toEndOf="@+id/textView_priceChangeOneDay"
+        app:layout_constraintTop_toTopOf="@+id/textView_priceChangeOneDay"
+        app:srcCompat="@drawable/ic_baseline_arrow_down" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
