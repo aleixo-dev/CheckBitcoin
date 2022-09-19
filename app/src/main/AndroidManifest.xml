@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.nicolas.checkbitcoin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".KoinApplication"
         android:allowBackup="true"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageViewForms">
+        <attr name="typeImage" format="enum">
+            <enum name="rounded" value="0" />
+            <enum name="normal" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
