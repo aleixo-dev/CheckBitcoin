@@ -14,12 +14,12 @@ import java.text.DecimalFormat
 
 class BitcoinAdapter(
     private val coinList: List<Coin>,
-    private val onClickFavorite: () -> Unit
+    private val onClickFavorite: (Coin) -> Unit
 ) : RecyclerView.Adapter<BitcoinAdapter.MainViewHolder>() {
 
     inner class MainViewHolder(
         private val binding: BitcoinItemBinding,
-        private val onClickFavorite: () -> Unit
+        private val onClickFavorite: (Coin) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(coin: Coin?) {
@@ -34,7 +34,7 @@ class BitcoinAdapter(
                         coinFinal.changeOneHour.toString()
                     )
                     imageViewFavoriteIcon.setOnClickListener {
-                        onClickFavorite.invoke()
+                        onClickFavorite.invoke(coin)
                     }
                 }
             }
@@ -75,10 +75,6 @@ class BitcoinAdapter(
                     text = "1H: $priceCoinOneHour"
                 }
             }
-
-        private fun setupIconArrowUp() {
-
-        }
 
         private fun loadImage(url: String) {
             Glide.with(binding.imageViewIconCoin.context)
