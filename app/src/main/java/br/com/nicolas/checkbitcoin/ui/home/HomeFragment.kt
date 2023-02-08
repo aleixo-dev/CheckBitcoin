@@ -38,12 +38,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.swipeRefresh.isRefreshing = false
     }
 
-    private fun setupRecyclerView(coins: List<Coin>) = context?.let { context ->
+    private fun setupRecyclerView(coins: List<Coin>) {
         with(binding.recyclerViewBitcoinList) {
             setHasFixedSize(true)
             adapter = BitcoinAdapter(
                 coins,
-                onClickFavorite = { /* save coin */ }
+                onClickFavorite = {saveCoin(it) }
             )
         }
         setupVisibilities(mainContent = true)
@@ -63,6 +63,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 setEvent(HomeFragmentEvent.OnSendAgain)
             }
         }
+    }
+
+    private fun saveCoin(newCoin: Coin){
+        viewModel.saveCoin(newCoin)
     }
 
     private fun setupVisibilities(
