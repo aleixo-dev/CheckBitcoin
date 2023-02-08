@@ -14,12 +14,16 @@ import java.text.DecimalFormat
 
 class BitcoinAdapter(
     private val coinList: List<Coin>,
-    private val onClickFavorite: () -> Unit
+    private val onClickFavorite: (Coin) -> Unit
 ) : RecyclerView.Adapter<BitcoinAdapter.MainViewHolder>() {
+
+    private val sortedCoinList : List<Coin>
+        get() = coinList.sortedBy { it.name }
+
 
     inner class MainViewHolder(
         private val binding: BitcoinItemBinding,
-        private val onClickFavorite: () -> Unit
+        private val onClickFavorite: (Coin) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(coin: Coin?) {
@@ -34,7 +38,7 @@ class BitcoinAdapter(
                         coinFinal.changeOneHour.toString()
                     )
                     imageViewFavoriteIcon.setOnClickListener {
-                        onClickFavorite.invoke()
+                        onClickFavorite.invoke(coin)
                     }
                 }
             }
@@ -100,8 +104,8 @@ class BitcoinAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(coinList[position])
+        holder.bind(sortedCoinList[position])
     }
 
-    override fun getItemCount() = coinList.size
+    override fun getItemCount() = sortedCoinList.size
 }
